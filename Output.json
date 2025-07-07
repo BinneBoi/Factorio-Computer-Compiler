@@ -13,8 +13,8 @@
                 "entity_number": 1,
                 "name": "constant-combinator",
                 "position": {
-                    "x": 150.5,
-                    "y": -12.5
+                    "x": 562.5,
+                    "y": -24.5
                 },
                 "direction": 4,
                 "control_behavior": {
@@ -113,112 +113,119 @@
                                     },
                                     {
                                         "index": 12,
-                                        "name": "splitter",
+                                        "type": "virtual",
+                                        "name": "signal-dot",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 50331648
+                                        "count": 50331649
                                     },
                                     {
                                         "index": 13,
-                                        "name": "iron-chest",
+                                        "type": "virtual",
+                                        "name": "shape-circle",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 54525952
                                     },
                                     {
                                         "index": 14,
-                                        "name": "burner-inserter",
+                                        "type": "virtual",
+                                        "name": "signal-clock",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 58720256
+                                        "count": 58720257
                                     },
                                     {
                                         "index": 15,
-                                        "name": "inserter",
+                                        "type": "virtual",
+                                        "name": "signal-battery-low",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 62914560
                                     },
                                     {
                                         "index": 16,
-                                        "name": "long-handed-inserter",
+                                        "type": "virtual",
+                                        "name": "signal-battery-mid-level",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 67108864
                                     },
                                     {
                                         "index": 17,
-                                        "name": "fast-inserter",
+                                        "type": "virtual",
+                                        "name": "signal-battery-full",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 71303168
                                     },
                                     {
                                         "index": 18,
-                                        "name": "bulk-inserter",
+                                        "type": "virtual",
+                                        "name": "signal-clockwise-circle-arrow",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 75497472
                                     },
                                     {
                                         "index": 19,
-                                        "name": "small-electric-pole",
+                                        "name": "burner-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 79691776
                                     },
                                     {
                                         "index": 20,
-                                        "name": "medium-electric-pole",
+                                        "name": "inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 83886080
+                                        "count": 83886081
                                     },
                                     {
                                         "index": 21,
-                                        "name": "big-electric-pole",
+                                        "name": "long-handed-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 88080384
+                                        "count": 88080434
                                     },
                                     {
                                         "index": 22,
-                                        "name": "substation",
+                                        "name": "fast-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 92274688
                                     },
                                     {
                                         "index": 23,
-                                        "name": "pipe",
+                                        "name": "bulk-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 96468992
                                     },
                                     {
                                         "index": 24,
-                                        "name": "pipe-to-ground",
+                                        "name": "transport-belt",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 100663296
                                     },
                                     {
                                         "index": 25,
-                                        "name": "pump",
+                                        "name": "fast-transport-belt",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 104857600
                                     },
                                     {
                                         "index": 26,
-                                        "name": "rail",
+                                        "name": "express-transport-belt",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 109051904
                                     },
                                     {
                                         "index": 27,
-                                        "name": "train-stop",
+                                        "name": "rail",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 113246208
@@ -351,7 +358,7 @@
                                     },
                                     {
                                         "index": 46,
-                                        "name": "express-transport-belt",
+                                        "name": "pump",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 192937984
@@ -1422,7 +1429,7 @@
                                     },
                                     {
                                         "index": 195,
-                                        "name": "fast-transport-belt",
+                                        "name": "pipe-to-ground",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 817889280
@@ -1492,7 +1499,7 @@
                                     },
                                     {
                                         "index": 205,
-                                        "name": "transport-belt",
+                                        "name": "pipe",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 859832320
@@ -2627,16 +2634,14 @@
                                     },
                                     {
                                         "index": 351,
-                                        "type": "virtual",
-                                        "name": "shape-circle",
+                                        "name": "iron-chest",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1488977920
                                     },
                                     {
                                         "index": 352,
-                                        "type": "virtual",
-                                        "name": "signal-dot",
+                                        "name": "splitter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1493172224
@@ -2747,8 +2752,7 @@
                                     },
                                     {
                                         "index": 366,
-                                        "type": "virtual",
-                                        "name": "signal-clockwise-circle-arrow",
+                                        "name": "train-stop",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1551892480
@@ -2795,24 +2799,21 @@
                                     },
                                     {
                                         "index": 372,
-                                        "type": "virtual",
-                                        "name": "signal-battery-low",
+                                        "name": "small-electric-pole",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1577058304
                                     },
                                     {
                                         "index": 373,
-                                        "type": "virtual",
-                                        "name": "signal-battery-mid-level",
+                                        "name": "medium-electric-pole",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1581252608
                                     },
                                     {
                                         "index": 374,
-                                        "type": "virtual",
-                                        "name": "signal-battery-full",
+                                        "name": "big-electric-pole",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1585446912
@@ -2948,7 +2949,7 @@
                                     {
                                         "index": 391,
                                         "type": "virtual",
-                                        "name": "signal-clock",
+                                        "name": "signal-ghost",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1656750080
@@ -3016,14 +3017,6 @@
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1690304512
-                                    },
-                                    {
-                                        "index": 400,
-                                        "type": "virtual",
-                                        "name": "signal-ghost",
-                                        "quality": "normal",
-                                        "comparator": "=",
-                                        "count": 1694498816
                                     }
                                 ]
                             }
@@ -3035,8 +3028,8 @@
                 "entity_number": 2,
                 "name": "constant-combinator",
                 "position": {
-                    "x": 150.5,
-                    "y": -11.5
+                    "x": 562.5,
+                    "y": -23.5
                 },
                 "direction": 4,
                 "control_behavior": {
@@ -3059,7 +3052,7 @@
                                         "name": "signal-0",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 8388608
+                                        "count": 8478905
                                     },
                                     {
                                         "index": 3,
@@ -3067,7 +3060,7 @@
                                         "name": "signal-1",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 12582912
+                                        "count": 12689585
                                     },
                                     {
                                         "index": 4,
@@ -3075,7 +3068,7 @@
                                         "name": "signal-2",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 16777216
+                                        "count": 16933201
                                     },
                                     {
                                         "index": 5,
@@ -3083,7 +3076,7 @@
                                         "name": "signal-3",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 20971520
+                                        "count": 21143885
                                     },
                                     {
                                         "index": 6,
@@ -3091,7 +3084,7 @@
                                         "name": "signal-4",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 25165824
+                                        "count": 25256121
                                     },
                                     {
                                         "index": 7,
@@ -3099,7 +3092,7 @@
                                         "name": "signal-5",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 29360128
+                                        "count": 29458633
                                     },
                                     {
                                         "index": 8,
@@ -3135,14 +3128,16 @@
                                     },
                                     {
                                         "index": 12,
-                                        "name": "splitter",
+                                        "type": "virtual",
+                                        "name": "signal-dot",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 50331648
                                     },
                                     {
                                         "index": 13,
-                                        "name": "iron-chest",
+                                        "type": "virtual",
+                                        "name": "shape-circle",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 54525952
@@ -5649,16 +5644,14 @@
                                     },
                                     {
                                         "index": 351,
-                                        "type": "virtual",
-                                        "name": "shape-circle",
+                                        "name": "iron-chest",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1488977920
                                     },
                                     {
                                         "index": 352,
-                                        "type": "virtual",
-                                        "name": "signal-dot",
+                                        "name": "splitter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1493172224
@@ -5970,7 +5963,7 @@
                                     {
                                         "index": 391,
                                         "type": "virtual",
-                                        "name": "signal-clock",
+                                        "name": "signal-ghost",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1656750080
@@ -6038,14 +6031,6 @@
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1690304512
-                                    },
-                                    {
-                                        "index": 400,
-                                        "type": "virtual",
-                                        "name": "signal-ghost",
-                                        "quality": "normal",
-                                        "comparator": "=",
-                                        "count": 1694498816
                                     }
                                 ]
                             }
@@ -6057,8 +6042,8 @@
                 "entity_number": 3,
                 "name": "constant-combinator",
                 "position": {
-                    "x": 150.5,
-                    "y": -10.5
+                    "x": 562.5,
+                    "y": -22.5
                 },
                 "direction": 4,
                 "control_behavior": {
@@ -6081,7 +6066,7 @@
                                         "name": "signal-0",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 8388608
+                                        "count": 8388638
                                     },
                                     {
                                         "index": 3,
@@ -6089,7 +6074,7 @@
                                         "name": "signal-1",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 12582912
+                                        "count": 12582948
                                     },
                                     {
                                         "index": 4,
@@ -6097,7 +6082,7 @@
                                         "name": "signal-2",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 16777216
+                                        "count": 16777258
                                     },
                                     {
                                         "index": 5,
@@ -6105,7 +6090,7 @@
                                         "name": "signal-3",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 20971520
+                                        "count": 20971557
                                     },
                                     {
                                         "index": 6,
@@ -6113,7 +6098,7 @@
                                         "name": "signal-4",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 25165824
+                                        "count": 25165856
                                     },
                                     {
                                         "index": 7,
@@ -6121,7 +6106,7 @@
                                         "name": "signal-5",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 29360128
+                                        "count": 29360158
                                     },
                                     {
                                         "index": 8,
@@ -6157,14 +6142,16 @@
                                     },
                                     {
                                         "index": 12,
-                                        "name": "splitter",
+                                        "type": "virtual",
+                                        "name": "signal-dot",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 50331648
                                     },
                                     {
                                         "index": 13,
-                                        "name": "iron-chest",
+                                        "type": "virtual",
+                                        "name": "shape-circle",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 54525952
@@ -8671,16 +8658,14 @@
                                     },
                                     {
                                         "index": 351,
-                                        "type": "virtual",
-                                        "name": "shape-circle",
+                                        "name": "iron-chest",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1488977920
                                     },
                                     {
                                         "index": 352,
-                                        "type": "virtual",
-                                        "name": "signal-dot",
+                                        "name": "splitter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1493172224
@@ -8992,7 +8977,7 @@
                                     {
                                         "index": 391,
                                         "type": "virtual",
-                                        "name": "signal-clock",
+                                        "name": "signal-ghost",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1656750080
@@ -9060,14 +9045,6 @@
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1690304512
-                                    },
-                                    {
-                                        "index": 400,
-                                        "type": "virtual",
-                                        "name": "signal-ghost",
-                                        "quality": "normal",
-                                        "comparator": "=",
-                                        "count": 1694498816
                                     }
                                 ]
                             }
