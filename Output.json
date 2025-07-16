@@ -169,77 +169,80 @@
                                     },
                                     {
                                         "index": 19,
-                                        "name": "burner-inserter",
+                                        "type": "virtual",
+                                        "name": "signal-recycle",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 79691776
                                     },
                                     {
                                         "index": 20,
-                                        "name": "inserter",
+                                        "type": "virtual",
+                                        "name": "signal-shuffle",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 83886081
+                                        "count": 83886080
                                     },
                                     {
                                         "index": 21,
-                                        "name": "long-handed-inserter",
+                                        "type": "virtual",
+                                        "name": "signal-stack-size",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 88080434
+                                        "count": 88080384
                                     },
                                     {
                                         "index": 22,
-                                        "name": "fast-inserter",
+                                        "name": "burner-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 92274688
+                                        "count": 92274693
                                     },
                                     {
                                         "index": 23,
-                                        "name": "bulk-inserter",
+                                        "name": "inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 96468992
+                                        "count": 96468997
                                     },
                                     {
                                         "index": 24,
-                                        "name": "transport-belt",
+                                        "name": "long-handed-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 100663296
+                                        "count": 100663306
                                     },
                                     {
                                         "index": 25,
-                                        "name": "fast-transport-belt",
+                                        "name": "fast-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 104857600
+                                        "count": 104857611
                                     },
                                     {
                                         "index": 26,
-                                        "name": "express-transport-belt",
+                                        "name": "bulk-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 109051904
                                     },
                                     {
                                         "index": 27,
-                                        "name": "rail",
+                                        "name": "transport-belt",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 113246208
                                     },
                                     {
                                         "index": 28,
-                                        "name": "rail-signal",
+                                        "name": "fast-transport-belt",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 117440512
                                     },
                                     {
                                         "index": 29,
-                                        "name": "rail-chain-signal",
+                                        "name": "express-transport-belt",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 121634816
@@ -424,8 +427,7 @@
                                         "name": "cliff-explosives",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 230686720,
-                                        "import_from": "nauvis"
+                                        "count": 230686720
                                     },
                                     {
                                         "index": 56,
@@ -2728,8 +2730,7 @@
                                     },
                                     {
                                         "index": 363,
-                                        "type": "virtual",
-                                        "name": "signal-shuffle",
+                                        "name": "rail-signal",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1539309568
@@ -2876,16 +2877,14 @@
                                     },
                                     {
                                         "index": 382,
-                                        "type": "virtual",
-                                        "name": "signal-stack-size",
+                                        "name": "rail",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1619001344
                                     },
                                     {
                                         "index": 383,
-                                        "type": "virtual",
-                                        "name": "signal-recycle",
+                                        "name": "rail-chain-signal",
                                         "quality": "normal",
                                         "comparator": "=",
                                         "count": 1623195648
@@ -3052,7 +3051,7 @@
                                         "name": "signal-0",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 8478905
+                                        "count": 8495281
                                     },
                                     {
                                         "index": 3,
@@ -3060,7 +3059,7 @@
                                         "name": "signal-1",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 12689585
+                                        "count": 12763507
                                     },
                                     {
                                         "index": 4,
@@ -3068,7 +3067,7 @@
                                         "name": "signal-2",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 16933201
+                                        "count": 16916817
                                     },
                                     {
                                         "index": 5,
@@ -3076,7 +3075,7 @@
                                         "name": "signal-3",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 21143885
+                                        "count": 21110967
                                     },
                                     {
                                         "index": 6,
@@ -3084,7 +3083,7 @@
                                         "name": "signal-4",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 25256121
+                                        "count": 25305265
                                     },
                                     {
                                         "index": 7,
@@ -3092,7 +3091,7 @@
                                         "name": "signal-5",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 29458633
+                                        "count": 29532337
                                     },
                                     {
                                         "index": 8,
@@ -3100,7 +3099,7 @@
                                         "name": "signal-6",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 33554432
+                                        "count": 33726861
                                     },
                                     {
                                         "index": 9,
@@ -6066,7 +6065,7 @@
                                         "name": "signal-0",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 8388638
+                                        "count": 8388658
                                     },
                                     {
                                         "index": 3,
@@ -6074,7 +6073,7 @@
                                         "name": "signal-1",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 12582948
+                                        "count": 12582946
                                     },
                                     {
                                         "index": 4,
@@ -6082,7 +6081,7 @@
                                         "name": "signal-2",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 16777258
+                                        "count": 16777250
                                     },
                                     {
                                         "index": 5,
@@ -6090,7 +6089,7 @@
                                         "name": "signal-3",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 20971557
+                                        "count": 20971554
                                     },
                                     {
                                         "index": 6,
@@ -6098,7 +6097,7 @@
                                         "name": "signal-4",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 25165856
+                                        "count": 25165844
                                     },
                                     {
                                         "index": 7,
@@ -6106,7 +6105,7 @@
                                         "name": "signal-5",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 29360158
+                                        "count": 29360170
                                     },
                                     {
                                         "index": 8,
@@ -6114,7 +6113,7 @@
                                         "name": "signal-6",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 33554432
+                                        "count": 33554483
                                     },
                                     {
                                         "index": 9,

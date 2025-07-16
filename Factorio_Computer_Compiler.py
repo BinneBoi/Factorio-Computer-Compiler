@@ -6,7 +6,7 @@ import pyperclip
 import re
 from tkinter import Tk, filedialog
 filename = "Everything Combinator.json"
-variables = ["nan","in0", "in1", "in2", "in3", "in4", "out0", "out1", "out2", "out3", "out4", "true", "false", "counter", "redLamp", "yellowLamp", "greenLamp", "reg"]
+variables = ["nan","in0", "in1", "in2", "in3", "in4", "out0", "out1", "out2", "out3", "out4", "true", "false", "counter", "redLamp", "yellowLamp", "greenLamp", "reg0", "reg1", "reg2", "reg3"]
 
 # Converts the json to a factorio string
 def json_to_factorio_blueprint(json_data):
@@ -15,7 +15,6 @@ def json_to_factorio_blueprint(json_data):
     base64_encoded_data = base64.b64encode(compressed_data).decode('utf-8')
     blueprint_string = '0' + base64_encoded_data
     return blueprint_string    
-
 def write_to_combinators(combinator, index, value, filename):
     with open(filename, 'r') as file:
         data = json.load(file)
@@ -27,8 +26,7 @@ def write_to_combinators(combinator, index, value, filename):
     )
     filters[index]["count"] = value
     with open(filename, 'w') as file:
-        json.dump(data, file, indent=4)
-       
+        json.dump(data, file, indent=4)       
 def loadFile():
     Tk().withdraw()
     filePath = filedialog.askopenfilename(filetypes=[("Text files", "*.txt")])    
@@ -58,7 +56,7 @@ arg_map = {
    ">>": 8,
    "&": 9,
    "|": 10,
-   "xor": 11,
+   "~": 11,
    ">": 12,
    "<": 13,
    "==": 14,
@@ -80,8 +78,7 @@ def tokenize(file):
 
         new_lines.append(args)
     
-    return new_lines 
-        
+    return new_lines         
 def makeVariables(new_lines, file):
     filtered_lines = []
     for line in new_lines:
@@ -92,54 +89,12 @@ def makeVariables(new_lines, file):
            value = value | (((int(variables.index(varname)) + 1) << 22))
            write_to_combinators(0, variables.index(varname), value, file)
        else:
-           filtered_lines.append(line)
-                
+           filtered_lines.append(line)            
     # Set true variable to 1
     write_to_combinators(0, variables.index("true"), 1 | (((int(variables.index("true")) + 1) << 22)), file)
     # Set clock to 1 to make program execution start on load
     write_to_combinators(0, variables.index("counter"), 58720257, file)
     return filtered_lines
-
-'''
-# Resets the output                                  
-with open("Everything Combinator.json", 'r') as src:
-    data = json.load(src)
-with open("Output.json", 'w') as dest:
-    json.dump(data, dest, indent=4) 
-
-# 
-
-file = loadFile()
-tokens = tokenize(file)
-tokens = makeVariables(tokens, "Output.json")
-
-loop = 1
-for line in tokens:
-    jump    =   int(line[0])
-    pos     =   int(line[1])
-    load1   =   int(line[2]) 
-    operand =   int(line[3])
-    load2   =   int(line[4])
-    
-    load = (loop + 1) << 22
-    load |= (load1 << 13)
-    load |= (load2 << 4)
-    load |= operand
-    
-    store = (loop + 1) << 22
-    store |= pos << 1
-    store |= jump
-    
-    write_to_combinators(1, loop, load, "Output.json")
-    write_to_combinators(2, loop, store, "Output.json")
-    loop += 1
-with open("Output.json", 'r') as src:
-    data = json.load(src)
-    output = json_to_factorio_blueprint(data)
-    
-    
-print(output)
-'''
 
 # Shunting yard algorithm, with recursion for fun
 def infixToPostfix(tokens):
@@ -147,7 +102,7 @@ def infixToPostfix(tokens):
     postfixList = []
     priority_map = {
    "|": 0,
-   "xor": 1,
+   "~": 1,
    "&": 2,
    "==": 3,
    "!=": 3,
@@ -194,14 +149,18 @@ def infixToPostfix(tokens):
     stack.reverse()
     postfixList.extend(stack)
     return postfixList
-def evalCreater(mem1, mem2, op):
-    output = ["eval", "#reg"]
+def evalCreater(dest, mem1, mem2, op):
+    output = ["eval", dest]
     output.append(mem1)
     output.append(op)
     output.append(mem2)
     return output
 def tokenize_expression(line):
     line = line.strip()
+    if not line:
+        return None
+    if line.startswith("#"):
+        return None
     if line.startswith("var"):
         tokens = line.split()
         return tokens
@@ -221,6 +180,7 @@ def parser1(expression):
       equation = expression[2:]
       postfix = infixToPostfix(equation)
       output = []
+      reg_counter = 0
       while len(postfix) > 0:
         i = 0
         while postfix[i] not in arg_map:
@@ -228,20 +188,25 @@ def parser1(expression):
         arg1 = postfix[i - 2]
         op = postfix[i]
         arg2 = postfix[i - 1]
-        output.append(evalCreater(arg1, arg2, op))
-        print(evalCreater(arg1, arg2, op))
+        #Try to reuse registers
+        if arg2.startswith("#reg"):
+            dest = arg2
+        elif arg1.startswith("#reg"):
+            dest = arg1
+        else:
+            dest = f"#reg{reg_counter}"
+            reg_counter += 1
+        output.append(evalCreater(dest, arg1, arg2, op))        
         if len(postfix) == 3:
             postfix.pop(i)
             output[-1][1] = location
             output[-1][0] = operation
         else:
-            postfix[i] = "reg"    
+            postfix[i] = dest
         postfix.pop(i-1)
         postfix.pop(i-2)
       return output
         
-
-
 #Resets the output, just in case                                  
 with open("Everything Combinator.json", 'r') as src:
     data = json.load(src)
@@ -253,13 +218,16 @@ lines = file.splitlines()
 #Tokenizes the lines
 tokenized_lines = []
 for line in lines:
-  tokenized_lines.append(tokenize_expression(line))
+    tokenizedExpression = tokenize_expression(line)  
+    if tokenizedExpression:
+        tokenized_lines.append(tokenizedExpression)
 #Stores the value from "var foo 123" lines into a constant combinator, and keeps track of that mem position, removes the line afterwards
-lines = makeVariables(tokenized_lines, "Output.json")    
+lines = makeVariables(tokenized_lines, "Output.json")   
 #Breaks down equations with multiple operands into parts like: eval #mem0 #mem1 + #mem2
 new_lines = []
 for line in lines:
-    new_lines.extend(parser1(line))    
+    new_lines.extend(parser1(line))
+for line in new_lines: print(line)    
 #Inserts the mem positions
 for line in new_lines:
     for i in range(len(line)):
@@ -275,17 +243,14 @@ for line in new_lines:
     pos     =   int(line[1])
     load1   =   int(line[2]) 
     operand =   int(line[3])
-    load2   =   int(line[4])
-    
+    load2   =   int(line[4])    
     load = (loop + 1) << 22
     load |= (load1 << 13)
     load |= (load2 << 4)
-    load |= operand
-  
+    load |= operand  
     store = (loop + 1) << 22
     store |= pos << 1
-    store |= jump
-    
+    store |= jump    
     write_to_combinators(1, loop, load, "Output.json")
     write_to_combinators(2, loop, store, "Output.json")
     loop += 1

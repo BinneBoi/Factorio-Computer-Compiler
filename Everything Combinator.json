@@ -169,77 +169,80 @@
                   },
                   {
                     "index": 19,
-                    "name": "burner-inserter",
+                    "type": "virtual",
+                    "name": "signal-recycle",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 79691776
                   },
                   {
                     "index": 20,
-                    "name": "inserter",
+                    "type": "virtual",
+                    "name": "signal-shuffle",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 83886080
                   },
                   {
                     "index": 21,
-                    "name": "long-handed-inserter",
+                    "type": "virtual",
+                    "name": "signal-stack-size",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 88080384
                   },
                   {
                     "index": 22,
-                    "name": "fast-inserter",
+                    "name": "burner-inserter",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 92274688
                   },
                   {
                     "index": 23,
-                    "name": "bulk-inserter",
+                    "name": "inserter",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 96468992
                   },
                   {
                     "index": 24,
-                    "name": "transport-belt",
+                    "name": "long-handed-inserter",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 100663296
                   },
                   {
                     "index": 25,
-                    "name": "fast-transport-belt",
+                    "name": "fast-inserter",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 104857600
                   },
                   {
                     "index": 26,
-                    "name": "express-transport-belt",
+                    "name": "bulk-inserter",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 109051904
                   },
                   {
                     "index": 27,
-                    "name": "rail",
+                    "name": "transport-belt",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 113246208
                   },
                   {
                     "index": 28,
-                    "name": "rail-signal",
+                    "name": "fast-transport-belt",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 117440512
                   },
                   {
                     "index": 29,
-                    "name": "rail-chain-signal",
+                    "name": "express-transport-belt",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 121634816
@@ -424,8 +427,7 @@
                     "name": "cliff-explosives",
                     "quality": "normal",
                     "comparator": "=",
-                    "count": 230686720,
-                    "import_from": "nauvis"
+                    "count": 230686720
                   },
                   {
                     "index": 56,
@@ -2728,8 +2730,7 @@
                   },
                   {
                     "index": 363,
-                    "type": "virtual",
-                    "name": "signal-shuffle",
+                    "name": "rail-signal",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 1539309568
@@ -2876,16 +2877,14 @@
                   },
                   {
                     "index": 382,
-                    "type": "virtual",
-                    "name": "signal-stack-size",
+                    "name": "rail",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 1619001344
                   },
                   {
                     "index": 383,
-                    "type": "virtual",
-                    "name": "signal-recycle",
+                    "name": "rail-chain-signal",
                     "quality": "normal",
                     "comparator": "=",
                     "count": 1623195648
