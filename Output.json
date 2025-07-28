@@ -210,21 +210,21 @@
                                         "name": "long-handed-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 100663306
+                                        "count": 100663296
                                     },
                                     {
                                         "index": 25,
                                         "name": "fast-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 104857611
+                                        "count": 104857610
                                     },
                                     {
                                         "index": 26,
                                         "name": "bulk-inserter",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 109051904
+                                        "count": 109051915
                                     },
                                     {
                                         "index": 27,
@@ -3059,7 +3059,7 @@
                                         "name": "signal-1",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 12763507
+                                        "count": 12763523
                                     },
                                     {
                                         "index": 4,
@@ -3099,7 +3099,7 @@
                                         "name": "signal-6",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 33726861
+                                        "count": 33726877
                                     },
                                     {
                                         "index": 9,
@@ -6065,7 +6065,7 @@
                                         "name": "signal-0",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 8388658
+                                        "count": 8388654
                                     },
                                     {
                                         "index": 3,
@@ -6113,7 +6113,7 @@
                                         "name": "signal-6",
                                         "quality": "normal",
                                         "comparator": "=",
-                                        "count": 33554483
+                                        "count": 33554479
                                     },
                                     {
                                         "index": 9,
