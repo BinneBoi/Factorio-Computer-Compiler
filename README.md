@@ -6,7 +6,7 @@ Hello, this project contains a compiler made for a factorio general computer. Wh
 
 1. Start the exe
 2. It will request that you choose a txt file to compile. Choose it
-3. The the text file will be compiled and then converted into a blueprint string
+3. The the text file will be compiled and then converted into a blueprint string. The string will be automatically copied to your clipboard.
 4. Import the blueprint in Factorio
 5. Place the blueprint on top of the existing combinators
 6. Turn the top left combinator off
