@@ -143,14 +143,14 @@ The compiler automatically provides several built in variables that your program
 
 **1. `in0` to `in4` Inputs**  
 Represent the 5 input combinators on the left side.
-Sending a signal to any of these will store its numeric value in the corresponding variable.
+Sending a signal to any of these will store its numeric value in the corresponding variable. Inputs are loaded after every instruction.
 
 **2. `out0` to `out4` Outputs**  
 Writing a value to one of these variables will output it through the matching output combinators on the right.
 
 **3. `counter` Program Counter**  
 Holds the line number of the instruction currently being executed.
-Writing to `counter` causes the program to jump to that line, like a manual `goto`.
+Writing to `counter` causes the program to jump to that line, like a manual `goto`. 
 
 **4. `reg0` to `reg3` Temporary Registers**  
 Used internally by the compiler to handle complex expressions.
@@ -189,5 +189,5 @@ while old < (4190000 - new)
 	eval new out0
 endwhile
 
-eval greenLamp true & true
+eval greenLamp true
 ```
