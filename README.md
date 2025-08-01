@@ -124,17 +124,15 @@ goto whileEnd0 true & true
 ### Delay
 Syntax:
 `delay <seconds>`
-Does what it says on the tin. Expect shorter delays to be less precise. The two second delay is especially troublesome. Here is a table of asked delay values and real ones:
+Does what it says on the tin. Expect shorter delays to be less precise. Here is a table of asked delay values and real ones:
 
-| Ask Delay (s) | Delay (frames) | Real Delay (s) | Error (%) |
-|---------------|----------------|----------------|-----------|
-| 1             | 62             | 1.03           | 3.23%     |
-| 2             | 98             | 1.63           | 22.45%    |
-| 3             | 170            | 2.83           | 5.88%     |
-| 4             | 242            | 4.03           | 0.83%     |
-| 10            | 602            | 10.03          | 0.33%     |
-| 60            | 3590           | 59.83          | 0.28%     |
-| 960           | 57590          | 959.83         | 0.02%     |
+| Ask delay (s) | Delay (frames) | Delay (s) | Error   |
+|---------------|----------------|-----------|---------|
+| 1             | 69             | 1.15      | 13.04%  |
+| 2             | 105            | 1.75      | 14.29%  |
+| 5             | 285            | 4.75      | 5.26%   |
+| 10            | 609            | 10.15     | 1.48%   |
+| 100           | 5973           | 99.55     | 0.45%   |
 
 ## Additional behavior
 
