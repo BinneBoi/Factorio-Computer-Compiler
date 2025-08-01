@@ -21,7 +21,7 @@ At the lowest level, the compiler understands only three core instructions:
 - `goto`
 - `var`
 
-However, by combining these basic instructions, the compiler can also interpret higher level structures like `if` statements and `while` loops.
+However, by combining these basic instructions, the compiler can also interpret higher level structures like `if` statements, `while` loops, and `delay`.
 Below, each instruction and its syntax will be explained.
 
 ## Syntax
@@ -30,6 +30,8 @@ Syntax:
 `var <name> <value>`
 This declares a variable that can be referenced later in the program and assigns a starting value to it. There is no scope so these can be written anywhere. 
 If no value is provided then it defaults to zero
+
+`var` is only relevant for compilation. It is removed before execution
 ### Eval
 Syntax: 
 Base form `eval <location> <var0> <operand> <var1>`
@@ -38,6 +40,34 @@ Calculates the expression and stores the result into the location variable.
 
 The compiler accepts longer operations, even with parenthesis. For example
 `eval <location> foo * bar + jab / (foo - bar)`. It will convert these into its base form automatically. 
+
+#### All valid operators and their priority
+Higher equals larger priority
+
+| Operator | Priority | Name           |
+| -------- | -------- | -------------- |
+| `~`      | 1        | XOR            |
+| `&`      | 2        | AND            |
+| `==`     | 3        | Equal          |
+| `!=`     | 3        | Not Equal      |
+| `<`      | 4        | Less than      |
+| `>`      | 4        | Greater than   |
+| `<<`     | 5        | Left shift     |
+| `>>`     | 5        | Right shift    |
+| `+`      | 6        | Addition       |
+| `-`      | 6        | Subtraction    |
+| `*`      | 7        | Multiplication |
+| `/`      | 7        | Division       |
+| `%`      | 7        | Modulo         |
+| `^`      | 8        | Exponent       |
+
+#### Speed
+From testing, `eval` is performed at a speed of around 8.3 operations a second:
+
+| Eval Ops/s | Seconds per Eval Op |
+|------------|---------------------|
+| 8.312      | 0.120               |
+
 ### Goto
 Syntax:  
 Base form `goto <location> <var0> <operand> <var1>`
@@ -48,9 +78,15 @@ There is no way to know what number each line has. So this is mostly used for th
 `goto 0 true` -> Restarts the program
 `goto 400 true` -> Stops the program
 
-The counter is an accesable variable as well. This mean you can store the counter at a specific part of the program and then jump there later, effectively making a label.
+The counter is an accessible variable as well. This mean you can store the counter at a specific part of the program and then jump there later, effectively making a label.
 `eval label counter` -> Stores the jump location
 `goto label true` -> Returns to the jump location
+
+A `goto` instruction is executed ~2.6 times slower than a `eval`. So in some cases it might be faster to use `eval` for conditional logic:
+
+| Goto Ops/s | Seconds per Goto Op |
+|------------|---------------------|
+| 3.211      | 0.311               
 
 ## Higher level syntax
 
@@ -62,6 +98,13 @@ if <expression>
 endif
 ```
 If the expression evaluates as true then it will execute all code after it. If it evaluates as false then it will skip everything until the endif. Works with nested ifs, consider using tab to make it easier to read.
+`if` is compiled into:
+```
+goto if0 <expression> ~ true
+...instructions...
+```
+The ~ is the xor symbol. Which in this case serves as a NOT gate. So if the expression is true then goto wont jump past all the instructions. And they will be executed normally. The expression will be extended into multiple lines if it is more elaborate than the base form explained in `eval`
+
 ### While
 Syntax: 
 ```
@@ -70,10 +113,32 @@ while <expression>
 endwhile
 ```
 The while loop repeatedly executes the block of code between while and endwhile as long as the expression evaluates to true i.e. the result is greater than 0.
+`while` is compiled into:
+```
+goto whileStart0 <expression> ~ true
+	...instructions...
+goto whileEnd0 true & true
+```
+`whileEnd` jumps back to `whileStart`, which exits the loop if the condition evaluates to false.
+
+### Delay
+Syntax:
+`delay <seconds>`
+Does what it says on the tin. Expect shorter delays to be less precise. The two second delay is especially troublesome. Here is a table of asked delay values and real ones:
+
+| Ask Delay (s) | Delay (frames) | Real Delay (s) | Error (%) |
+|---------------|----------------|----------------|-----------|
+| 1             | 62             | 1.03           | 3.23%     |
+| 2             | 98             | 1.63           | 22.45%    |
+| 3             | 170            | 2.83           | 5.88%     |
+| 4             | 242            | 4.03           | 0.83%     |
+| 10            | 602            | 10.03          | 0.33%     |
+| 60            | 3590           | 59.83          | 0.28%     |
+| 960           | 57590          | 959.83         | 0.02%     |
 
 ## Additional behavior
 
-#### Predefined Variables
+### Predefined Variables
 The compiler automatically provides several built in variables that your program can use:
 
 **1. `in0` to `in4` Inputs**  
@@ -93,19 +158,21 @@ Do not rely on them to store data their contents may be overwritten at any time.
 
 **5. `greenLamp`, `yellowLamp`, `redLamp` Indicator Lamps**  
 Writing a `TRUE` value, as in anything greater than 0 to one of these will turn the corresponding lamp on.
-#### Immediate values
+### Immediate values
 It is safe to use values directly in expressions. The compiler will automatically assign these an variable with that value. Only works if all characters are digits. Example:
 ```
 var foo 3
 eval foo 42 + bar
 ```
-#### Direct assigning
+### Direct assigning
 Using an eval or goto but only using one variable will use that variable directly. For example:
 In `eval foo bar` it will copy bar to foo. 
 And in `goto label foo` it will go to label if foo is true.
-#### Overflow
+### No indentation
+`if` and `while` clauses are defined by their respective `endif` and `endwhile`. This means that indentation is not necessary for the program to compile. However, you may use indentation to improve readability.
+### Overflow
 If a value is larger than 4194303 after execution then it will overflow and be stored as 0
-#### No Floats nor negative numbers
+### No Floats nor negative numbers
 All data in the system is stored and processed as unsigned integers only.
 Floating point and negative number logic is not natively supported, but it can be implemented manually using custom logic. If you need such behavior, consider it an exercise left to the user.
 
@@ -117,9 +184,9 @@ var old 0
 
 # Check so it does not overflow
 while old < (4190000 - new)
-eval out0 new + old
-eval old new
-eval new out0
+	eval out0 new + old
+	eval old new
+	eval new out0
 endwhile
 
 eval greenLamp true & true
