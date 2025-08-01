@@ -3,11 +3,13 @@ import zlib
 import base64
 import pyperclip
 import re
-import copy
+import copy 
 import msvcrt
 from tkinter import Tk, filedialog
+from data import everythingCombinator
+
 inputFile = "Everything Combinator.json"
-outputJson = []
+    
 # Preset variables
 variables = ["nan",
              "in0", "in1", "in2", "in3", "in4", 
@@ -47,11 +49,12 @@ def loadFile():
                 print("File contents successfully read.")
                 return file.read()            
         except FileNotFoundError:
-            print(f"Error: The file at {filePath} does not exist.")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+            print("Could not find 'Everything Combinator.json' make sure it is included in the same directory as the executable")
+            input("Press enter to quit...")
+            quit()
     else:
         print("No file selected or invalid file path.")
+        input("Press enter to quit...")
         quit()
 # Tokenizes the lines using regex
 def tokenize(lines):
@@ -203,6 +206,7 @@ def errorCheck(lines):
                 
     if errors > 0:
         print(f"\nCompilation failed with {errors} error(s).")
+        input("Press enter to quit...")
         quit()
 
     return lines
@@ -292,6 +296,7 @@ def parser(lines):
             if i < 2:
                 print(f"Error: Malformed postfix expression")
                 print(f"On line: {expression}")
+                input("Press enter to quit...")
                 quit()
             arg1 = postfix[i - 2]
             op = postfix[i]
@@ -463,10 +468,10 @@ def delay(lines):
 
 # --- Execution ---
 # Loads the json containing the three combinators all instructions will be written to                                  
-with open("Everything Combinator.json", 'r') as src:
-    outputJson = json.load(src)
+outputJson = json.loads(everythingCombinator)
 
-# Loads the input      
+# Loads the input
+print("Please select txt to compile...")       
 lines = loadFile().splitlines()
 # Tokenizes the lines
 lines = tokenize(lines) 
@@ -509,6 +514,7 @@ for line in lines:
                     line[i], outputJson = addVariable(token, int(token), outputJson)
                 else:
                     print(f"Unkown variable: {token}")
+                    input("Press enter to quit...")
                     quit()
 
 loop = 1
