@@ -2,7 +2,7 @@
 # -the computer takes about 0.6 seconds to perform one operaton. So doing the math
 # we get that we have to do 166 operations
 
-var wait 17
+var wait 166
 while wait > 0
 	eval wait wait - 1
 endwhile
