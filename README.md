@@ -2,7 +2,10 @@
 
 Hello, this project contains a compiler made for a factorio general computer. Which makes it much easier to write understandable code for it. How to use it as well as the syntax of its programming language will be described in this README. And also any other behavior this compiler may have.
 
-## How to use is
+Blueprint: https://factorioprints.com/view/-OWf-ue0unalXoE1GWvg
+
+Blueprint (without tiles): https://factorioprints.com/view/-OWa3GBgEI-2zPvJ0OUW
+## How to use it
 
 1. Start the exe
 2. It will request that you choose a txt file to compile. Choose it
@@ -81,7 +84,7 @@ There is no way to know what number each line has. So this is mostly used for th
 The counter is an accessible variable as well. This mean you can store the counter at a specific part of the program and then jump there later, effectively making a label.
 `eval label counter` -> Stores the jump location
 `goto label true` -> Returns to the jump location
-
+#### Speed
 A `goto` instruction is executed ~2.6 times slower than a `eval`. So in some cases it might be faster to use `eval` for conditional logic:
 
 | Goto Ops/s | Seconds per Goto Op |
