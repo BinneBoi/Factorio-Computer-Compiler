@@ -1,0 +1,19 @@
+var x
+var y
+
+# Nested while loops example. Indentation is not necissary, but for your own sanity it might be
+while x < 2
+	eval yellowLamp false
+	eval y 0
+	if x == 1
+		eval redLamp true
+		eval redLamp false
+	endif
+	while y < 10
+		eval y y + 1
+	endwhile
+	eval x x + 1
+	eval yellowLamp true
+endwhile
+eval yellowLamp false
+eval greenLamp true

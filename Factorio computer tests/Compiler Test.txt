@@ -1,0 +1,21 @@
+#The compiler is pretty low level. However, I have added functionality to use longer expressions 
+#-with the eval command.
+
+#We can write (3 + 2) * 8 - 1 - 7 % 3 as:
+eval reg0 3 + 2
+eval reg0 reg0 * 8 
+eval reg0 reg0 - 1
+eval reg1 7 % 3
+#And lets store it to out0:
+eval out0 reg0 - reg1
+#Notice how im using #reg0 and #reg1. These are predifned memory positions from 0-4 that are used to hold data 
+#-temporarily.
+
+#Now the neat part is that you can rewrite this as:
+eval out1 (3 + 2) * 8 - 1 - 7 % 3
+#And the compiler will rewrite it for you
+#The two outputs should be the same
+
+#One thing to note is that if the expression becomes too complicated, the compiler might run out of-
+#-registers. In that case, try splitting it up into more parts.
+#This behaviour also means that the registers are not a safe place to store data. Use a memory location for that

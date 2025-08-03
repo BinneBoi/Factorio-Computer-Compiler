@@ -1,0 +1,19 @@
+var return 0
+var jab 1
+var foo 50
+var mem 0
+
+#Turns on yello lamp to show in progress
+eval yellowLamp true
+
+#Saves the position of the start of the loop
+while mem < 50
+	eval mem mem + 1
+endwhile
+
+#Show completion on lamps
+eval out0 mem
+eval yellowLamp false
+eval greenLamp true
+
+#out0 should now be 50

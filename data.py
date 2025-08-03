@@ -3023,7 +3023,8 @@ everythingCombinator = """
                 ]
               }
             ]
-          }
+          },
+          "is_on": false
         }
       },
       {

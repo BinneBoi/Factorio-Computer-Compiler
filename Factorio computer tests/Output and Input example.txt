@@ -1,0 +1,7 @@
+# It loads the input into memory after each instruction. So I have one extra buffer instruction in the beginning
+eval out0 in0
+eval out0 in0
+eval out1 in1
+eval out2 in2
+eval out3 in3
+eval out4 in4

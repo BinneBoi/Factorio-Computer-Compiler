@@ -1,0 +1,66 @@
+# Variables note how all values must be declared beforehand
+var return
+var function
+var result
+
+#Function that sums the value in yellowLed into result, and sets yellowLamp to 0 afterwards
+eval function counter + 1
+if return != 0	 
+	eval result result + yellowLamp
+	eval yellowLamp false
+	goto return true
+endif
+
+#Main code
+#These tests all the different operands
+eval yellowLamp 2 - 1
+eval return counter + 2
+goto function true
+
+eval yellowLamp 4 / 4
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 % 2
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 ^ 0
+eval return counter + 2
+goto function true
+
+eval yellowLamp 2 >> 1
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 & 1
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 | 0
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 ~ 0
+eval return counter + 2
+goto function true
+
+eval yellowLamp 4 > 2
+eval return counter + 2
+goto function true
+
+eval yellowLamp 2 < 4
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 == 1
+eval return counter + 2
+goto function true
+
+eval yellowLamp 1 != 2
+eval return counter + 2
+goto function true
+
+#Sum of the results should be 12 if all  operands succeded. Green lamp if all suceeded, and red one if not
+eval greenLamp result == 12
+eval redLamp result != 12

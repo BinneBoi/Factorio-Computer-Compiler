@@ -1,0 +1,9 @@
+var foo 2
+
+# You'll see that this while loop exits when foo overflows to 0
+while foo != 0
+	eval foo foo * 2
+	eval out0 foo
+endwhile
+
+eval greenLamp true

@@ -1,0 +1,9 @@
+var delay
+
+# The classic
+while true
+	eval redLamp true
+	delay 1
+	eval redLamp false
+	delay 1
+endwhile

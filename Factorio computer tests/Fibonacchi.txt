@@ -1,0 +1,10 @@
+var new 1
+var old 0
+# Check so it does not overflow
+while old < (4190000 - new)
+	eval out0 new + old
+	eval old new
+	eval new out0  
+endwhile 
+
+eval greenLamp true

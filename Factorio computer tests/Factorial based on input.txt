@@ -1,0 +1,15 @@
+var input 0
+var fact 1
+
+# Waits for an input
+while input == 0
+	eval input in0
+endwhile
+
+# Performs a factorial on the number
+while input > 1
+	eval fact fact * input
+	eval input input - 1
+endwhile
+eval out0 fact
+eval greenLamp true

@@ -1,0 +1,8 @@
+var return
+var foo 100
+eval return counter + 1
+eval out0 true
+eval foo foo - 1
+goto return foo > 0
+eval greenLamp true
+eval out0 false

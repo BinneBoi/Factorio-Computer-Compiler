@@ -1,0 +1,15 @@
+# You could use a whileloop to specify a delay. Lets say we want to wait 10 seconds
+# -the computer takes about 0.6 seconds to perform one operaton. So doing the math
+# we get that we have to do 166 operations
+
+var wait 17
+while wait > 0
+	eval wait wait - 1
+endwhile
+
+eval yellowLamp true
+
+# What you see above is encapsulated inside this function.
+delay 10
+
+eval greenLamp true

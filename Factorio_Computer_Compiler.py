@@ -542,6 +542,7 @@ for line in lineBackup: print(line)
 print(f"\nVariables and constants used: {variables[21:]}")
 print(f"RAM used: {len(variables)}/400")
 print(f"ROM used: {len(lines)}/400")
+
 try:
     pyperclip.copy(output)
     print("\nFactorio blueprint string has been copied to clipboard.")

@@ -1,0 +1,23 @@
+var bar 21
+var foo 42
+
+# Syntax for if statement: if (expression), then to end the clause: endif
+# Examples
+if bar == 21
+	eval greenLamp true & true
+endif
+if bar != 42
+	eval redLamp true & true
+endif
+if bar == 13
+	eval yellowLamp true & true
+endif
+
+# Nested if statements are okey
+if bar == 21
+	if foo == 42
+		eval yellowLamp true & true
+	endif
+endif
+
+# Try changing the if statements for yourself
